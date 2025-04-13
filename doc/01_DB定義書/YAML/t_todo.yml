@@ -1,0 +1,36 @@
+id: t_todo
+テーブル名称: ToDo情報
+
+列項目:
+  - 物理名称: id
+    論理名称: ToDoID
+    データ型: int
+    PK: true
+    ID: true
+    NN: true
+
+  - 物理名称: title
+    論理名称: タイトル
+    データ型: nvarchar
+    桁数: 40
+    PK: false
+    ID: false
+    NN: true
+
+  - 物理名称: comp_flg
+    論理名称: 完了フラグ
+    データ型: bit
+    初期値: 0
+    PK: false
+    ID: false
+    NN: true
+
+  - 物理名称: del_flg
+    論理名称: 削除フラグ
+    データ型: bit
+    初期値: 0
+    PK: false
+    ID: false
+    NN: true
+
+PKeys: id

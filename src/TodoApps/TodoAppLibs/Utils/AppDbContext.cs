@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TodoAppLibs.Entities;
 
 namespace TodoAppLibs
 {
@@ -7,6 +8,8 @@ namespace TodoAppLibs
     /// </summary>
     public class AppDbContext : DbContext
     {
+        public virtual DbSet<TTodo> ToDos { get; set; }
+
         protected AppDbContext()
         {
         }
