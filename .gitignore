@@ -1,0 +1,10 @@
+﻿################################################################################
+# この .gitignore ファイルは Microsoft(R) Visual Studio によって自動的に作成されました。
+################################################################################
+
+/src/TodoApps/.vs/TodoApps
+/src/TodoApps/TodoAppLibs/bin/Debug/net8.0
+/src/TodoApps/TodoAppLibs/obj
+/src/TodoApps/TodoAppWeb/bin/Debug/net8.0
+/src/TodoApps/TodoAppWeb/obj
+/src/TodoApps/TodoAppWeb/TodoAppWeb.csproj.user
