@@ -10,6 +10,7 @@ ToDo情報
 |:-|:-|:-:|:-|:-:|:-:|:-:|:-|
 | id | ToDoID | int || ○ | ○ | ○ ||
 | title | タイトル | nvarchar(40) |||| ○ ||
+| due_dt | 期限 | date |||| ○ ||
 | comp_flg | 完了フラグ | bit | 0 ||| ○ ||
 | del_flg | 削除フラグ | bit | 0 ||| ○ ||
 
@@ -25,6 +26,7 @@ CREATE TABLE t_todo(
 
   id int IDENTITY(1,1) NOT NULL,
   title nvarchar(40) NOT NULL,
+  due_dt date NOT NULL,
   comp_flg bit DEFAULT 0 NOT NULL,
   del_flg bit DEFAULT 0 NOT NULL,
   s_ins_dtm datetime NOT NULL,

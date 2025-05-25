@@ -17,6 +17,13 @@ id: t_todo
     ID: false
     NN: true
 
+  - 物理名称: due_dt
+    論理名称: 期限
+    データ型: date
+    PK: false
+    ID: false
+    NN: true
+
   - 物理名称: comp_flg
     論理名称: 完了フラグ
     データ型: bit
