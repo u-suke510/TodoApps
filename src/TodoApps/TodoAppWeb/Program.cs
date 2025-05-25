@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TodoAppLibs;
+using TodoAppLibs.Repositories;
+using TodoAppWeb.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,9 @@ builder.Services.AddDbContext<AppDbContext>(option => {
     option.UseSqlServer(builder.Configuration.GetConnectionString("ConnStr"));
     option.EnableSensitiveDataLogging();
 });
+
+builder.Services.AddScoped<ITodo, Todo>();
+builder.Services.AddScoped<ITodoRepository, TodoRepository>();
 
 var app = builder.Build();
 
