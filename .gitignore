@@ -8,3 +8,5 @@
 /src/TodoApps/TodoAppWeb/bin/Debug/net8.0
 /src/TodoApps/TodoAppWeb/obj
 /src/TodoApps/TodoAppWeb/TodoAppWeb.csproj.user
+/doc/execY2D.bat
+/doc/Yaml2DocApp-settings.json

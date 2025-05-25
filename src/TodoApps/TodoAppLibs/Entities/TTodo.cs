@@ -31,6 +31,16 @@ namespace TodoAppLibs.Entities
         }
 
         /// <summary>
+        /// 期限
+        /// </summary>
+        [Column("due_dt")]
+        public DateTime DueDt
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// 完了フラグ
         /// </summary>
         [Column("comp_flg")]
