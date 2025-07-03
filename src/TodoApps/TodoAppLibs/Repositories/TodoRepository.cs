@@ -15,6 +15,12 @@ namespace TodoAppLibs.Repositories
         /// <param name="id">ToDoID</param>
         /// <returns>ToDo情報エンティティ</returns>
         TTodo GetItemById(int id);
+
+        /// <summary>
+        /// ToDo一覧の表示データを取得します。
+        /// </summary>
+        /// <returns>ToDo情報</returns>
+        List<TTodo> GetListItems();
     }
 
     /// <summary>
@@ -41,6 +47,21 @@ namespace TodoAppLibs.Repositories
             var item = context.ToDos.SingleOrDefault(x => x.Id == id && !x.DelFlg);
             logger.LogInformation(MsgResource.FmtDbSelectCount, item == null ? 0 : 1);
             return item;
+        }
+
+        /// <summary>
+        /// ToDo一覧の表示データを取得します。
+        /// </summary>
+        /// <returns>ToDo情報</returns>
+        public List<TTodo> GetListItems()
+        {
+            var query = from todo in context.ToDos
+                        where !todo.CompFlg && !todo.DelFlg
+                        orderby todo.DueDt
+                        select todo;
+            var items = query.ToList();
+            logger.LogInformation(MsgResource.FmtDbSelectCount, items.Count);
+            return items;
         }
     }
 }

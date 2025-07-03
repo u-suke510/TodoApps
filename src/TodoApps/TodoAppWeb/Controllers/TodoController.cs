@@ -30,7 +30,9 @@ namespace TodoAppWeb.Controllers
         {
             ActionLog($"Start Index.");
 
-            return View();
+            // 画面表示
+            var viewModel = model.GetIndexViewModel();
+            return View(viewModel);
         }
 
         /// <summary>
@@ -55,7 +57,7 @@ namespace TodoAppWeb.Controllers
         [HttpPost]
         public IActionResult Form(FormViewModel viewModel)
         {
-            ActionLog($"Register Form.({viewModel.Title})");
+            ActionLog($"Register Form.(viewModel={{Id:{viewModel.Id},Title:{viewModel.Title},DueDt:{viewModel.DueDt:yyyy/MM/dd}}})");
 
             // 入力値チェック
             if (!ModelState.IsValid)

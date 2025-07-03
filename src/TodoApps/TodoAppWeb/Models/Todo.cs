@@ -18,6 +18,12 @@ namespace TodoAppWeb.Models
         FormViewModel GetFormViewModel(int? id);
 
         /// <summary>
+        /// ToDo一覧画面のViewModelを取得します。
+        /// </summary>
+        /// <returns>ViewModel</returns>
+        IndexViewModel GetIndexViewModel();
+
+        /// <summary>
         /// ToDoフォームを登録します。
         /// </summary>
         /// <param name="viewModel">ToDoフォーム</param>
@@ -71,6 +77,30 @@ namespace TodoAppWeb.Models
                 Title = item.Title,
                 DueDt = item.DueDt
             };
+            return viewModel;
+        }
+
+        /// <summary>
+        /// ToDo一覧画面のViewModelを取得します。
+        /// </summary>
+        /// <returns>ViewModel</returns>
+        public IndexViewModel GetIndexViewModel()
+        {
+            // ViewModelの生成
+            var viewModel = new IndexViewModel();
+
+            // 一覧アイテムの取得
+            var items = provider.GetService<ITodoRepository>().GetListItems();
+            // 一覧アイテムの設定
+            if (items.Any())
+            {
+                viewModel.Items.AddRange(items.Select(x => new IndexViewModel.ListItem {
+                    Id = x.Id,
+                    Title = x.Title,
+                    DueDt = x.DueDt
+                }));
+            }
+
             return viewModel;
         }
 

@@ -61,6 +61,15 @@ namespace TodoAppWeb.Resources {
         }
         
         /// <summary>
+        ///   タスクの追加 に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string BtnAdd {
+            get {
+                return ResourceManager.GetString("BtnAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   処理済みのアイテムは変更できません。 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string ErrMsgClosedItem {

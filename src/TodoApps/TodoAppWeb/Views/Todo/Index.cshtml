@@ -1,6 +1,12 @@
-﻿@using TodoAppWeb.Resources
+﻿@model IndexViewModel
+@using TodoAppWeb.Resources
+@using TodoAppWeb.ViewModels.Todo
 @{
     ViewData["Title"] = TodoResource.TitleList;
 }
 
-<p>ToDo TOP画面</p>
+<h3 class="text-muted">@TodoResource.TitleList</h3>
+<div class="d-flex justify-content-end">
+    <a asp-action="Form" class="btn btn-primary btn-sm">@TodoResource.BtnAdd</a>
+</div>
+<partial name="_List" model="Model.Items" />

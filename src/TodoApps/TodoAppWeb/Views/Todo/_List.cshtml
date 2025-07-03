@@ -1,0 +1,27 @@
+﻿@model List<IndexViewModel.ListItem>
+@using TodoAppWeb.Resources
+@using TodoAppWeb.ViewModels.Todo
+@{
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@TodoResource.LblTitle</th>
+            <th scope="col">@TodoResource.LblDueDt</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>
+                    <a asp-action="Form" asp-route-Id="@item.Id">@item.Title</a>
+                </td>
+                <td>@($"{@item.DueDt:yyyy/MM/dd}")</td>
+            </tr>
+        }
+    </tbody>
+</table>
