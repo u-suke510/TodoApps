@@ -75,7 +75,8 @@ namespace TodoAppWeb.Models
             var viewModel = new FormViewModel {
                 Id = item.Id,
                 Title = item.Title,
-                DueDt = item.DueDt
+                DueDt = item.DueDt,
+                IsCompleted = item.CompFlg
             };
             return viewModel;
         }
@@ -141,8 +142,16 @@ namespace TodoAppWeb.Models
             }
 
             // 更新情報の設定
-            target.Title = viewModel.Title;
-            target.DueDt = viewModel.DueDt;
+            if (viewModel.IsCompleted)
+            {
+                // 完了フラグのみ
+                target.CompFlg = true;
+            }
+            else
+            {
+                target.Title = viewModel.Title;
+                target.DueDt = viewModel.DueDt;
+            }
             target.SUpdDtm = DateTime.Now;
             target.SUpdUsr = userId;
             target.SUpdClass = GetType().Name;
@@ -159,6 +168,11 @@ namespace TodoAppWeb.Models
             /// <returns>チェック結果</returns>
             bool isUpdate(TTodo src, FormViewModel dest)
             {
+                // 完了登録
+                if (dest.IsCompleted)
+                {
+                    return true;
+                }
                 // タイトルの変更
                 if (src.Title != dest.Title)
                 {

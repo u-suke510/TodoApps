@@ -20,6 +20,13 @@
         <input asp-for="DueDt" class="form-control" type="date" />
         <span asp-validation-for="DueDt" class="text-danger"></span>
     </div>
+    @if (0 < Model.Id)
+    {
+        <div class="form-check form-switch mt-1">
+            <input asp-for="IsCompleted" class="form-check-input" id="CompFlg" />
+            <label class="form-check-label" for="CompFlg">@TodoResource.LblCompFlg</label>
+        </div>
+    }
     <div class="mt-2 text-center">
         <input type="submit" value="@CmnResource.BtnRegister" class="btn btn-primary" />
         <a asp-action="Index" class="btn btn-secondary">@CmnResource.BtnCancel</a>

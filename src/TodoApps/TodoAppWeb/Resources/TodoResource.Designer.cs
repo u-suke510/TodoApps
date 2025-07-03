@@ -79,6 +79,15 @@ namespace TodoAppWeb.Resources {
         }
         
         /// <summary>
+        ///   完了にする に類似しているローカライズされた文字列を検索します。
+        /// </summary>
+        public static string LblCompFlg {
+            get {
+                return ResourceManager.GetString("LblCompFlg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   期限 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string LblDueDt {

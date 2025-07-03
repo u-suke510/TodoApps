@@ -123,6 +123,9 @@
   <data name="ErrMsgClosedItem" xml:space="preserve">
     <value>処理済みのアイテムは変更できません。</value>
   </data>
+  <data name="LblCompFlg" xml:space="preserve">
+    <value>完了にする</value>
+  </data>
   <data name="LblDueDt" xml:space="preserve">
     <value>期限</value>
   </data>

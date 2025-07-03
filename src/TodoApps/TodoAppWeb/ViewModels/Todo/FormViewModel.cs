@@ -31,6 +31,11 @@ namespace TodoAppWeb.ViewModels.Todo
         public DateTime DueDt { get; set; } = DateTime.Today;
 
         /// <summary>
+        /// 完了フラグ
+        /// </summary>
+        public bool IsCompleted { get; set; }
+
+        /// <summary>
         /// 削除済みフラグ
         /// </summary>
         public bool IsDeleted { get; set; }

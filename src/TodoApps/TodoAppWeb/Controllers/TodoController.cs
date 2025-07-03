@@ -57,7 +57,7 @@ namespace TodoAppWeb.Controllers
         [HttpPost]
         public IActionResult Form(FormViewModel viewModel)
         {
-            ActionLog($"Register Form.(viewModel={{Id:{viewModel.Id},Title:{viewModel.Title},DueDt:{viewModel.DueDt:yyyy/MM/dd}}})");
+            ActionLog($"Register Form.(viewModel={{Id:{viewModel.Id},Title:{viewModel.Title},DueDt:{viewModel.DueDt:yyyy/MM/dd},IsCompleted:{viewModel.IsCompleted}}})");
 
             // 入力値チェック
             if (!ModelState.IsValid)
