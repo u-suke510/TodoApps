@@ -12,8 +12,18 @@ builder.Services.AddLogging(x => {
     x.AddConfiguration(builder.Configuration.GetSection("Logging"));
     x.AddLog4Net();
 });
+var dbType = builder.Configuration.GetValue<DbType>("DBSettings:Type");
 builder.Services.AddDbContext<AppDbContext>(option => {
-    option.UseSqlServer(builder.Configuration.GetConnectionString("ConnStr"));
+    // PostgreSQL
+    if (dbType == DbType.PostgreSQL)
+    {
+        option.UseNpgsql(builder.Configuration.GetConnectionString("ConnStr"));
+    }
+    // Šù’è‚ÌDB‚ÍSQLServer
+    else
+    {
+        option.UseSqlServer(builder.Configuration.GetConnectionString("ConnStr"));
+    }
     option.EnableSensitiveDataLogging();
 });
 
